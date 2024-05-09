@@ -2,6 +2,10 @@ from logic import *
 
 
 def main():
+    '''
+    Runs programs contents and opens gui
+    :return:
+    '''
     application = QApplication([])
     window = Logic()
     window.show()

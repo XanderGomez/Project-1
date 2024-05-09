@@ -1,12 +1,26 @@
 from PyQt6.QtWidgets import *
 from PyQt6.QtCore import *
 from gui import *
+import csv
 
 id_list = []
 
+try:
+    with open('voted_id.csv', 'r+', newline='') as file:
+        csv_reader = csv.reader(file)
+        for x in csv_reader:
+            id_list.append(x)
+except FileNotFoundError:
+    id_list = []
 
 class Logic(QMainWindow, Ui_MainWindow):
+    '''
+    Class for the Gui logic components
+    '''
     def __init__(self):
+        '''
+        Initializes and defines variables within the Gui
+        '''
         super().__init__()
         self.setupUi(self)
 
@@ -18,10 +32,10 @@ class Logic(QMainWindow, Ui_MainWindow):
         try:
             with open(f'vote_results.txt', 'r+', newline='') as vote_file:
                 votes = vote_file.readline().split()
-                self.tristan_votes = votes[0]
-                self.corbin_votes = votes[1]
-                self.xander_votes = votes[2]
-                self.george_votes = votes[3]
+                self.tristan_votes = int(votes[0])
+                self.corbin_votes = int(votes[1])
+                self.xander_votes = int(votes[2])
+                self.george_votes = int(votes[3])
                 self.tristan_rslt_num.setText(votes[0])
                 self.corbin_rslt_num.setText(votes[1])
                 self.xander_rslt_num.setText(votes[2])
@@ -38,6 +52,10 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.george_votes = 0
 
     def submit(self):
+        '''
+        Provides functionality for the submit button
+        :return:
+        '''
         try:
             if self.id_entry.text().isdigit() != True or len(self.id_entry.text()) != 6:
                 raise ValueError
@@ -58,14 +76,24 @@ class Logic(QMainWindow, Ui_MainWindow):
             with open('vote_results.txt', 'w+') as vote_file:
                 vote_file.write(f'{self.tristan_votes} {self.corbin_votes} {self.xander_votes} {self.george_votes}')
 
-            self.id_entry.text().append(id_list)
-            print(id_list)
+            with open('vote_results.txt', 'r+') as vote_file:
+                votes = vote_file.readline().split()
+                self.tristan_rslt_num.setText(votes[0])
+                self.corbin_rslt_num.setText(votes[1])
+                self.xander_rslt_num.setText(votes[2])
+                self.george_rslt_num.setText(votes[3])
+            #FixMe: Needs to stop raising Value Error when writing to csv
+            id_list.append(self.id_entry.text())
+            with open('voted_id.csv', 'w+', newline=' ') as file:
+                csv_writer = csv.writer(file)
+                csv_writer.writerow(id_list)
             self.id_entry.setText('')
             self.error_label.setText('')
             self.tristan_vote.setChecked(False)
             self.corbin_vote.setChecked(False)
             self.xander_vote.setChecked(False)
             self.george_vote.setChecked(False)
+            self.buttonGroup.setChecked(False)
 
         except ValueError:
             self.error_label.setStyleSheet("color: rgb(255, 0, 0)")
@@ -78,6 +106,10 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.error_label.setText('ID already voted!')
 
     def result(self):
+        '''
+        Provides functionality for the result button
+        :return:
+        '''
         if self.id_entry.text() == '052221':
             self.stackedWidget.setCurrentIndex(1)
         else:
@@ -85,7 +117,15 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.error_label.setText('Incorrect ID to view results')
 
     def back(self):
+        '''
+        Provides functionality for the back button
+        :return:
+        '''
         self.stackedWidget.setCurrentIndex(0)
 
     def exit(self):
+        '''
+        Provides functionality for the exit button
+        :return:
+        '''
         QCoreApplication.instance().quit()
