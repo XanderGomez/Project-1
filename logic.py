@@ -22,6 +22,15 @@ class Logic(QMainWindow, Ui_MainWindow):
                 self.corbin_votes = votes[1]
                 self.xander_votes = votes[2]
                 self.george_votes = votes[3]
+                self.tristan_rslt_num.setText(votes[0])
+                self.corbin_rslt_num.setText(votes[1])
+                self.xander_rslt_num.setText(votes[2])
+                self.george_rslt_num.setText(votes[3])
+                total = 0
+                for x in votes:
+                    total += int(x)
+                self.total_rslt_num.setText(str(total))
+
         except FileNotFoundError:
             self.tristan_votes = 0
             self.corbin_votes = 0
@@ -50,6 +59,7 @@ class Logic(QMainWindow, Ui_MainWindow):
                 vote_file.write(f'{self.tristan_votes} {self.corbin_votes} {self.xander_votes} {self.george_votes}')
 
             self.id_entry.text().append(id_list)
+            print(id_list)
             self.id_entry.setText('')
             self.error_label.setText('')
             self.tristan_vote.setChecked(False)
@@ -69,12 +79,13 @@ class Logic(QMainWindow, Ui_MainWindow):
 
     def result(self):
         if self.id_entry.text() == '052221':
-            self.stackedWidget.setCurrentIndex(self.result_page)
+            self.stackedWidget.setCurrentIndex(1)
         else:
+            self.error_label.setStyleSheet("color: rgb(255, 0, 0)")
             self.error_label.setText('Incorrect ID to view results')
 
     def back(self):
-        self.stackedWidget.setCurrentIndex(self.vote_page)
+        self.stackedWidget.setCurrentIndex(0)
 
     def exit(self):
         QCoreApplication.instance().quit()
