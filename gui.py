@@ -16,13 +16,14 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(530, 630))
         MainWindow.setMaximumSize(QtCore.QSize(530, 630))
         MainWindow.setStyleSheet("QMainWindow{\n"
-"    background-color: rgb(221, 221, 221)\n"
-"}")
+                                 "    background-color: rgb(221, 221, 221)\n"
+                                 "}")
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.centralwidget)
         self.stackedWidget.setGeometry(QtCore.QRect(0, -20, 530, 650))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred,
+                                           QtWidgets.QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.stackedWidget.sizePolicy().hasHeightForWidth())
@@ -46,10 +47,10 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.id_entry.setFont(font)
         self.id_entry.setStyleSheet("QLineEdit {\n"
-"    border-radius: 5px;\n"
-"    border-style: solid;\n"
-"    border-color: #000;\n"
-"}")
+                                    "    border-radius: 5px;\n"
+                                    "    border-style: solid;\n"
+                                    "    border-color: #000;\n"
+                                    "}")
         self.id_entry.setObjectName("id_entry")
         self.id_label = QtWidgets.QLabel(parent=self.vote_page)
         self.id_label.setGeometry(QtCore.QRect(150, 110, 60, 20))
@@ -91,7 +92,7 @@ class Ui_MainWindow(object):
         self.xander_vote.setObjectName("xander_vote")
         self.buttonGroup.addButton(self.xander_vote)
         self.george_vote = QtWidgets.QRadioButton(parent=self.vote_page)
-        self.george_vote.setGeometry(QtCore.QRect(225, 340, 80, 25))
+        self.george_vote.setGeometry(QtCore.QRect(225, 340, 90, 25))
         font = QtGui.QFont()
         font.setPointSize(14)
         self.george_vote.setFont(font)
@@ -103,10 +104,10 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.submit_button.setFont(font)
         self.submit_button.setStyleSheet("QPushButton {\n"
-"    border-radius: 5px;\n"
-"    border-style: solid;\n"
-"    background-color: rgb(193, 193, 193)\n"
-"}")
+                                         "    border-radius: 5px;\n"
+                                         "    border-style: solid;\n"
+                                         "    background-color: rgb(193, 193, 193)\n"
+                                         "}")
         self.submit_button.setObjectName("submit_button")
         self.results_button = QtWidgets.QPushButton(parent=self.vote_page)
         self.results_button.setGeometry(QtCore.QRect(205, 450, 131, 41))
@@ -114,10 +115,10 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.results_button.setFont(font)
         self.results_button.setStyleSheet("QPushButton {\n"
-"    border-radius: 5px;\n"
-"    border-style: solid;\n"
-"    background-color: rgb(193, 193, 193)\n"
-"}")
+                                          "    border-radius: 5px;\n"
+                                          "    border-style: solid;\n"
+                                          "    background-color: rgb(193, 193, 193)\n"
+                                          "}")
         self.results_button.setObjectName("results_button")
         self.exit_button = QtWidgets.QPushButton(parent=self.vote_page)
         self.exit_button.setGeometry(QtCore.QRect(205, 500, 131, 41))
@@ -125,10 +126,10 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.exit_button.setFont(font)
         self.exit_button.setStyleSheet("QPushButton {\n"
-"    border-radius: 5px;\n"
-"    border-style: solid;\n"
-"    background-color: rgb(193, 193, 193)\n"
-"}")
+                                       "    border-radius: 5px;\n"
+                                       "    border-style: solid;\n"
+                                       "    background-color: rgb(193, 193, 193)\n"
+                                       "}")
         self.exit_button.setObjectName("exit_button")
         self.error_label = QtWidgets.QLabel(parent=self.vote_page)
         self.error_label.setEnabled(False)
@@ -138,7 +139,7 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         self.error_label.setFont(font)
         self.error_label.setStyleSheet("QLabel* pLabel = new QLabel;\n"
-"pLabel->setStyleSheet(\"QLabel { background-color : red; color : blue; }\");")
+                                       "pLabel->setStyleSheet(\"QLabel { background-color : red; color : blue; }\");")
         self.error_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.error_label.setObjectName("error_label")
         self.label = QtWidgets.QLabel(parent=self.vote_page)
@@ -162,7 +163,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.tristan_rslt_label.setFont(font)
-        self.tristan_rslt_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.tristan_rslt_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.tristan_rslt_label.setObjectName("tristan_rslt_label")
         self.corbin_rslt_label = QtWidgets.QLabel(parent=self.result_page)
         self.corbin_rslt_label.setGeometry(QtCore.QRect(120, 230, 71, 20))
@@ -170,7 +172,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.corbin_rslt_label.setFont(font)
-        self.corbin_rslt_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.corbin_rslt_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.corbin_rslt_label.setObjectName("corbin_rslt_label")
         self.xander_rslt_label = QtWidgets.QLabel(parent=self.result_page)
         self.xander_rslt_label.setGeometry(QtCore.QRect(120, 290, 81, 20))
@@ -178,7 +181,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.xander_rslt_label.setFont(font)
-        self.xander_rslt_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.xander_rslt_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.xander_rslt_label.setObjectName("xander_rslt_label")
         self.george_rslt_label = QtWidgets.QLabel(parent=self.result_page)
         self.george_rslt_label.setGeometry(QtCore.QRect(120, 350, 81, 31))
@@ -186,7 +190,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.george_rslt_label.setFont(font)
-        self.george_rslt_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.george_rslt_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.george_rslt_label.setObjectName("george_rslt_label")
         self.ttl_votes_label = QtWidgets.QLabel(parent=self.result_page)
         self.ttl_votes_label.setGeometry(QtCore.QRect(120, 420, 141, 20))
@@ -194,7 +199,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.ttl_votes_label.setFont(font)
-        self.ttl_votes_label.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.ttl_votes_label.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.ttl_votes_label.setObjectName("ttl_votes_label")
         self.tristan_rslt_num = QtWidgets.QLabel(parent=self.result_page)
         self.tristan_rslt_num.setGeometry(QtCore.QRect(400, 170, 30, 20))
@@ -202,7 +208,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.tristan_rslt_num.setFont(font)
-        self.tristan_rslt_num.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.tristan_rslt_num.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.tristan_rslt_num.setObjectName("tristan_rslt_num")
         self.corbin_rslt_num = QtWidgets.QLabel(parent=self.result_page)
         self.corbin_rslt_num.setGeometry(QtCore.QRect(400, 230, 30, 20))
@@ -210,7 +217,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.corbin_rslt_num.setFont(font)
-        self.corbin_rslt_num.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.corbin_rslt_num.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.corbin_rslt_num.setObjectName("corbin_rslt_num")
         self.xander_rslt_num = QtWidgets.QLabel(parent=self.result_page)
         self.xander_rslt_num.setGeometry(QtCore.QRect(400, 290, 30, 20))
@@ -218,7 +226,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.xander_rslt_num.setFont(font)
-        self.xander_rslt_num.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.xander_rslt_num.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.xander_rslt_num.setObjectName("xander_rslt_num")
         self.george_rslt_num = QtWidgets.QLabel(parent=self.result_page)
         self.george_rslt_num.setGeometry(QtCore.QRect(400, 350, 30, 31))
@@ -226,7 +235,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.george_rslt_num.setFont(font)
-        self.george_rslt_num.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.george_rslt_num.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.george_rslt_num.setObjectName("george_rslt_num")
         self.total_rslt_num = QtWidgets.QLabel(parent=self.result_page)
         self.total_rslt_num.setGeometry(QtCore.QRect(400, 420, 30, 20))
@@ -234,7 +244,8 @@ class Ui_MainWindow(object):
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(18)
         self.total_rslt_num.setFont(font)
-        self.total_rslt_num.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.total_rslt_num.setAlignment(
+            QtCore.Qt.AlignmentFlag.AlignLeading | QtCore.Qt.AlignmentFlag.AlignLeft | QtCore.Qt.AlignmentFlag.AlignVCenter)
         self.total_rslt_num.setObjectName("total_rslt_num")
         self.back_button = QtWidgets.QPushButton(parent=self.result_page)
         self.back_button.setGeometry(QtCore.QRect(200, 510, 131, 41))
@@ -242,10 +253,10 @@ class Ui_MainWindow(object):
         font.setPointSize(12)
         self.back_button.setFont(font)
         self.back_button.setStyleSheet("QPushButton {\n"
-"    border-radius: 5px;\n"
-"    border-style: solid;\n"
-"    background-color: rgb(193, 193, 193)\n"
-"}")
+                                       "    border-radius: 5px;\n"
+                                       "    border-style: solid;\n"
+                                       "    background-color: rgb(193, 193, 193)\n"
+                                       "}")
         self.back_button.setObjectName("back_button")
         self.stackedWidget.addWidget(self.result_page)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -288,6 +299,7 @@ class Ui_MainWindow(object):
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()

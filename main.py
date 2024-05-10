@@ -2,10 +2,10 @@ from logic import *
 
 
 def main():
-    '''
+    """
     Runs programs contents and opens gui
-    :return:
-    '''
+    :return: None
+    """
     application = QApplication([])
     window = Logic()
     window.show()

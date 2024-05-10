@@ -18,6 +18,7 @@ class Logic(QMainWindow, Ui_MainWindow):
     def __init__(self):
         """
         Initializes and defines variables within the Gui
+        :return: None
         """
         super().__init__()
         self.setupUi(self)
@@ -38,10 +39,10 @@ class Logic(QMainWindow, Ui_MainWindow):
                 self.corbin_rslt_num.setText(votes[1])
                 self.xander_rslt_num.setText(votes[2])
                 self.george_rslt_num.setText(votes[3])
-                total = 0
+                self.total = 0
                 for x in votes:
-                    total += int(x)
-                self.total_rslt_num.setText(str(total))
+                    self.total += int(x)
+                self.total_rslt_num.setText(str(self.total))
 
         except FileNotFoundError:
             self.tristan_votes = 0
@@ -52,7 +53,7 @@ class Logic(QMainWindow, Ui_MainWindow):
     def submit(self):
         """
         Provides functionality for the submit button
-        :return:
+        :return: None
         """
         try:
             if self.id_entry.text().isdigit() != True or len(self.id_entry.text()) != 6:
@@ -80,6 +81,8 @@ class Logic(QMainWindow, Ui_MainWindow):
                 self.corbin_rslt_num.setText(votes[1])
                 self.xander_rslt_num.setText(votes[2])
                 self.george_rslt_num.setText(votes[3])
+                self.total += 1
+                self.total_rslt_num.setText(str(self.total))
 
             id_list.append(self.id_entry.text())
             with open('voted_id.txt', 'w') as file:
@@ -115,7 +118,7 @@ class Logic(QMainWindow, Ui_MainWindow):
     def result(self):
         """
         Provides functionality for the result button
-        :return:
+        :return: None
         """
         if self.id_entry.text() == '052221':
             self.stackedWidget.setCurrentIndex(1)
@@ -126,13 +129,13 @@ class Logic(QMainWindow, Ui_MainWindow):
     def back(self):
         """
         Provides functionality for the back button
-        :return:
+        :return: None
         """
         self.stackedWidget.setCurrentIndex(0)
 
     def exit(self):
         """
         Provides functionality for the exit button
-        :return:
+        :return: None
         """
         QCoreApplication.instance().quit()
