@@ -101,6 +101,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             elif self.george_vote.isChecked():
                 self.george_vote.setChecked(False)
             self.id_entry.setFocus()
+            self.buttonGroup.setExclusive(True)
 
         except ValueError:
             self.error_label.setStyleSheet("color: rgb(255, 0, 0)")
