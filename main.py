@@ -1,7 +1,7 @@
 from logic import *
 
 
-def main():
+def main() -> None:
     """
     Runs programs contents and opens gui
     :return: None

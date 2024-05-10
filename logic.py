@@ -15,7 +15,7 @@ class Logic(QMainWindow, Ui_MainWindow):
     """
     Class for the Gui logic components
     """
-    def __init__(self):
+    def __init__(self) -> None:
         """
         Initializes and defines variables within the Gui
         :return: None
@@ -50,7 +50,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.xander_votes = 0
             self.george_votes = 0
 
-    def submit(self):
+    def submit(self) -> None:
         """
         Provides functionality for the submit button
         :return: None
@@ -115,7 +115,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.error_label.setStyleSheet("color: rgb(255, 0, 0)")
             self.error_label.setText('Error')
 
-    def result(self):
+    def result(self) -> None:
         """
         Provides functionality for the result button
         :return: None
@@ -126,14 +126,14 @@ class Logic(QMainWindow, Ui_MainWindow):
             self.error_label.setStyleSheet("color: rgb(255, 0, 0)")
             self.error_label.setText('Incorrect ID to view results')
 
-    def back(self):
+    def back(self) -> None:
         """
         Provides functionality for the back button
         :return: None
         """
         self.stackedWidget.setCurrentIndex(0)
 
-    def exit(self):
+    def exit(self) -> None:
         """
         Provides functionality for the exit button
         :return: None
